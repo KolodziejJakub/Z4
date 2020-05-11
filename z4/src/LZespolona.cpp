@@ -1,19 +1,29 @@
-#include<iostream>
-#include<cmath>
 #include "LZespolona.hh"
+#include <iomanip>
 
-using std::cout;
-using std::cin;
+using namespace std;
 
 
 /*!
- * Realizuje dodanie dwoch liczb zespolonych.
- * Argumenty:
- *    Skl1 - pierwszy skladnik dodawania,
- *    Skl2 - drugi skladnik dodawania.
- * Zwraca:
- *    Sume dwoch skladnikow przekazanych jako parametry.
+ * Podstawia do liczby zespolonej liczbę rzeczywistą.
+ * Powoduje to, że w części urojonej zostanie automatycznie podstawiona
+ * wartość 0.
  */
+LZespolona &LZespolona::operator = (double  Liczba)
+{
+  this->re = Liczba; this->im = 0;
+  return *this;
+}
+
+LZespolona  operator * (LZespolona  Mnozna,  double  Mnoznik_Liczba)
+{
+  LZespolona  Wynik;
+
+  Wynik.re = Mnozna.re * Mnoznik_Liczba;
+  Wynik.im = Mnozna.im * Mnoznik_Liczba;
+  return Wynik;
+}
+
 LZespolona  operator + (LZespolona  Skl1,  LZespolona  Skl2)
 {
   LZespolona  Wynik;

@@ -9,9 +9,12 @@ obj:
 ./test_wektora: obj obj/main.o obj/LZespolona.o
 	g++ -o ./test_wektora obj/main.o obj/LZespolona.o
 
-obj/main.o: src/main.cpp inc/Wektor.hh inc/LZespolona.hh
+obj/main.o: src/main.cpp inc/SWektor.hh inc/LZespolona.hh
 	g++ -c ${CXXFLAGS} -o obj/main.o src/main.cpp
 
 
 obj/LZespolona.o: src/LZespolona.cpp inc/LZespolona.hh
 	g++ -c ${CXXFLAGS} -o obj/LZespolona.o src/LZespolona.cpp
+
+obj/UkladRownanLiniowych.o: src/UkladRownanLiniowych.cpp inc/UkladRownanLiniowych.hh
+	g++ -c ${CXXFLAGS} -o obj/UkladRownanLiniowych.o src/UkladRownanLiniowych.cpp
